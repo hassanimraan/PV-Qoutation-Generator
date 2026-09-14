@@ -76,7 +76,11 @@ with tabs[1]:
     inv["type"] = st.selectbox("Inverter Type", ["On-Grid", "Hybrid", "Off-Grid", "All-in-One", "Other"])
     c1, c2, c3 = st.columns(3)
     inv["manufacturer"] = c1.text_input("Manufacturer", inv["manufacturer"])
-    inv["model"] = c2.text_input("Model", inv["model"])
+    inv["model"] = c2.text_input(
+    "Model",
+    inv["model"],
+    key="inverter_model"
+)
     inv["capacity_kw"] = c3.number_input("Capacity (kW)", min_value=0.1, value=float(inv["capacity_kw"]), step=0.1)
     c1, c2 = st.columns(2)
     inv["quantity"] = c1.number_input("Quantity", min_value=1, value=int(inv["quantity"]), step=1)
